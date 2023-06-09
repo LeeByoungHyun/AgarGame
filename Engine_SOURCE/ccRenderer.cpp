@@ -14,7 +14,7 @@ namespace renderer
 	cc::Shader* shader = nullptr;
 	cc::graphics::ConstantBuffer* constantBuffer = nullptr;
 
-	Vector4 pos(0.0f, 0.0f, 0.0f, 1.0f);
+	//Vector4 pos(0.0f, 0.0f, 0.0f, 1.0f);
 
 	void SetupState()
 	{
@@ -69,6 +69,7 @@ namespace renderer
 
 	void Initialize()
 	{
+		/*
 		vertexes[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
 		vertexes[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 
@@ -80,6 +81,7 @@ namespace renderer
 
 		vertexes[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
 		vertexes[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+		*/
 
 		LoadBuffer();
 		LoadShader();
@@ -88,17 +90,7 @@ namespace renderer
 
 	void Update()
 	{
-		if (cc::Input::GetKey(cc::eKeyCode::W))
-			pos += Vector4(0.0f, 0.1f * cc::Time::DeltaTime(), 0.0f, 1.0f);
-		if (cc::Input::GetKey(cc::eKeyCode::S))
-			pos += Vector4(0.0f, -0.1f * cc::Time::DeltaTime(), 0.0f, 1.0f);
-		if (cc::Input::GetKey(cc::eKeyCode::A))
-			pos += Vector4(-0.1f * cc::Time::DeltaTime(), 0.0f, 0.0f, 1.0f);
-		if (cc::Input::GetKey(cc::eKeyCode::D))
-			pos += Vector4(0.1f * cc::Time::DeltaTime(), 0.0f, 0.0f, 1.0f);
-
-		constantBuffer->SetData(&pos);
-		constantBuffer->Bind(eShaderStage::VS);
+		
 	}
 
 	void Release()

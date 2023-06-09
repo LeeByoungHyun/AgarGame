@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ccAgarScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccConstantBuffer.cpp" />
@@ -24,6 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)ccLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccMesh.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ccPlayerBall.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccResourceManager.cpp" />
@@ -34,6 +36,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)ccTime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ccAgarScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccConstantBuffer.h" />
@@ -47,6 +50,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ccLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccMesh.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ccPlayerBall.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccResourceManager.h" />

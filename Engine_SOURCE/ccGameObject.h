@@ -6,6 +6,8 @@
 
 namespace cc
 {
+	using namespace cc::graphics;
+
 	class GameObject : public Entity
 	{
 	public:
@@ -28,7 +30,8 @@ namespace cc
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
-		renderer::Vertex vertexes[];
+		float x;
+		float y;
 	};
 }
 

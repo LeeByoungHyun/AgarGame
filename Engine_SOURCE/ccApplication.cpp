@@ -33,7 +33,7 @@ namespace cc
 
 		renderer::Initialize();
 
-		mScene = new Scene();
+		mScene = new AgarScene();
 		mScene->Initialize();
 	}
 

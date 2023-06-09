@@ -27,7 +27,12 @@ namespace cc
 
 	void Scene::LateUpdate()
 	{
+		for (GameObject* gameObj : mGameObjects)
+		{
+			gameObj->LateUpdate();
+		}
 	}
+
 	void Scene::Render()
 	{
 		for (GameObject* gameObj : mGameObjects)

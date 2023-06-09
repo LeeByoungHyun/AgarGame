@@ -1,7 +1,7 @@
 #pragma once
 #include "CCEngine.h"
 #include "ccGraphicDevice_Dx11.h"
-#include "ccScene.h"
+#include "ccAgarScene.h"
 
 namespace cc
 {
@@ -32,6 +32,6 @@ namespace cc
 		UINT mWidth;
 		UINT mHeight;
 
-		Scene* mScene;
+		AgarScene* mScene;
 	};
 }

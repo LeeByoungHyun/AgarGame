@@ -317,7 +317,7 @@ namespace cc::graphics
 		renderer::shader->Binds();
 		mContext->DrawIndexed(renderer::mesh->GetIndexCount(), 0, 0);
 
-		mSwapChain->Present(0, 0);
+		//mSwapChain->Present(0, 0);
 		
 	}
 	void GraphicDevice_Dx11::Present()
