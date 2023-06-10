@@ -23,6 +23,7 @@ namespace cc::graphics
 	enum class eCBType
 	{
 		Transform,
+		Size,
 		End,
 	};
 

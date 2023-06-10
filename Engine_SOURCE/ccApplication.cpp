@@ -24,6 +24,8 @@ namespace cc
 		Update();
 		LateUpdate();
 		Render();
+
+		mScene->Destroy();
 	}
 
 	void Application::Initialize()
@@ -42,7 +44,6 @@ namespace cc
 		Time::Update();
 		Input::Update();
 
-		renderer::Update();
 		mScene->Update();
 	}
 

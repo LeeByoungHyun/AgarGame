@@ -88,11 +88,6 @@ namespace renderer
 		SetupState();
 	}
 
-	void Update()
-	{
-		
-	}
-
 	void Release()
 	{
 		delete mesh;

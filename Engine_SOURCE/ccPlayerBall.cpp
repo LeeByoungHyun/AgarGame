@@ -7,10 +7,15 @@ namespace cc
 {
 	using namespace cc::graphics;
 
+	PlayerBall* PlayerBall::instance = nullptr;
+
 	PlayerBall::PlayerBall()
 		: x(0.0f)
 		, y(0.0f)
-		, pos(0.0f, 0.0f, 0.0f, 1.0f)
+		, cPos(nullptr)
+		, cSize(nullptr)
+		, size(1.0f)
+		, hitbox(0.02f)
 	{
 
 	}
@@ -24,16 +29,16 @@ namespace cc
 	{
 		GameObject::Initialize();
 
-		vertexes[0].pos = Vector3(x - 0.1f, y + 0.1f, 0.0f);
+		vertexes[0].pos = Vector3(x - hitbox, y + hitbox, 0.0f);
 		vertexes[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 
-		vertexes[1].pos = Vector3(x +0.1f, y + 0.1f, 0.0f);
+		vertexes[1].pos = Vector3(x + hitbox, y + hitbox, 0.0f);
 		vertexes[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
-		vertexes[2].pos = Vector3(x + 0.1f, y - 0.1f, 0.0f);
+		vertexes[2].pos = Vector3(x + hitbox, y - hitbox, 0.0f);
 		vertexes[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
 
-		vertexes[3].pos = Vector3(x - 0.1f, y - 0.1f, 0.0f);
+		vertexes[3].pos = Vector3(x - hitbox, y - hitbox, 0.0f);
 		vertexes[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 
 		// Vertex Buffer
@@ -52,6 +57,14 @@ namespace cc
 		shader = new cc::Shader();
 		shader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "main");
 		shader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "main");
+
+		cPos = new cc::graphics::ConstantBuffer(eCBType::Transform);
+		cPos->Create(sizeof(Vector4));
+		cPos->Bind(eShaderStage::VS);
+
+		cSize = new cc::graphics::ConstantBuffer(eCBType::Size);
+		cSize->Create(sizeof(Vector4));
+		cSize->Bind(eShaderStage::VS);
 	}
 
 	void PlayerBall::Update()
@@ -59,21 +72,22 @@ namespace cc
 		GameObject::Update();
 
 		if (cc::Input::GetKey(cc::eKeyCode::W))
-			pos += Vector4(0.0f, 0.1f * cc::Time::DeltaTime(), 0.0f, 1.0f);
+			y += 0.1f * Time::DeltaTime();
 		if (cc::Input::GetKey(cc::eKeyCode::S))
-			pos += Vector4(0.0f, -0.1f * cc::Time::DeltaTime(), 0.0f, 1.0f);
+			y -= 0.1f * Time::DeltaTime();
 		if (cc::Input::GetKey(cc::eKeyCode::A))
-			pos += Vector4(-0.1f * cc::Time::DeltaTime(), 0.0f, 0.0f, 1.0f);
+			x -= 0.1f * Time::DeltaTime();
 		if (cc::Input::GetKey(cc::eKeyCode::D))
-			pos += Vector4(0.1f * cc::Time::DeltaTime(), 0.0f, 0.0f, 1.0f);
+			x += 0.1f * Time::DeltaTime();
 
-		renderer::constantBuffer->SetData(&pos);
-		renderer::constantBuffer->Bind(eShaderStage::VS);
+		Vector4 constancePos = Vector4(x, y, size, 1.0f);
+		cPos->SetData(&constancePos);
 	}
 
 	void PlayerBall::LateUpdate()
 	{
 		GameObject::LateUpdate();
+
 	}
 
 	void PlayerBall::Render()
@@ -82,6 +96,15 @@ namespace cc
 
 		mesh->BindBuffer();
 		shader->Binds();
-		graphics::GetDevice()->DrawIndexed(renderer::mesh->GetIndexCount(), 0, 0);
+		graphics::GetDevice()->DrawIndexed(mesh->GetIndexCount(), 0, 0);
+	}
+
+	void PlayerBall::IncreaseSize()
+	{
+		size *= 1.2f;
+		hitbox *= 1.2f;
+
+		//Vector4 constance = Vector4(size, 0.0f, 0.0f, 0.0f);
+		//cSize->SetData(&constance);
 	}
 }

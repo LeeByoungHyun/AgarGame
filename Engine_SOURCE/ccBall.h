@@ -1,14 +1,14 @@
 #pragma once
-#include "ccEntity.h"
+
 #include "ccGameObject.h"
 
 namespace cc
 {
-	class Scene : public Entity
+	class Ball : public GameObject
 	{
 	public:
-		Scene();
-		virtual ~Scene();
+		Ball();
+		virtual ~Ball();
 
 		virtual void Initialize();
 		virtual void Update();
@@ -17,6 +17,12 @@ namespace cc
 
 
 	private:
-		std::vector<GameObject*> mGameObjects;
+		Mesh* mesh;
+		Shader* shader;
+		renderer::Vertex vertexes[4] = {};
+		ConstantBuffer* constantBuffer;
+
+		float x;
+		float y;
 	};
 }

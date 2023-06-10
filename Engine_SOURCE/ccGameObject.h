@@ -15,7 +15,7 @@ namespace cc
 		{
 			Active,
 			Puase,
-			Dead,
+			Death,
 		};
 
 		GameObject();
@@ -26,6 +26,8 @@ namespace cc
 		virtual void LateUpdate();
 		virtual void Render();
 
+		eState GetState() { return mState; }
+		void SetState(eState state) { mState = state; }
 
 	private:
 		eState mState;

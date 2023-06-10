@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)ccAgarScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ccBall.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccConstantBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ccEntity.cpp" />
@@ -38,6 +39,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ccAgarScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ccBall.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ccConstantBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CCEngine.h" />

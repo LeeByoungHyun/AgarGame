@@ -21,6 +21,5 @@ namespace renderer
 	extern cc::graphics::ConstantBuffer* constantBuffer;
 
 	void Initialize();
-	void Update();
 	void Release();
 }

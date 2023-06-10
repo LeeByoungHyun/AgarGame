@@ -55,6 +55,9 @@
     <Filter Include="Scene\AgarGameScene">
       <UniqueIdentifier>{3ce6a815-b32c-47a6-a92d-18042fd04027}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Ball">
+      <UniqueIdentifier>{8e6c6c3d-d44b-460e-ba5a-9554a062ca4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -129,6 +132,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ccAgarScene.h">
       <Filter>Scene\AgarGameScene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ccBall.h">
+      <Filter>GameObject\Ball</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)ccEntity.cpp">
@@ -190,6 +196,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)ccAgarScene.cpp">
       <Filter>Scene\AgarGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ccBall.cpp">
+      <Filter>GameObject\Ball</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
