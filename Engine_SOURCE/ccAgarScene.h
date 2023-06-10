@@ -18,7 +18,7 @@ namespace cc
 
 	private:
 		std::vector<GameObject*> mGameObjects;
-
+		double mTime;
 	};
 }
 

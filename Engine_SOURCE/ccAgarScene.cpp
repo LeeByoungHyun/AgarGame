@@ -1,6 +1,7 @@
 #include "ccAgarScene.h"
 #include "ccPlayerBall.h"
 #include "ccBall.h"
+#include "ccTime.h"
 
 namespace cc
 {
@@ -42,7 +43,15 @@ namespace cc
 	void AgarScene::Update()
 	{
 		// 일정 시간이 지날 때 마다 먹을 수 있는 공 생성
+		mTime += Time::DeltaTime();
+		if (mTime >= 2.0f) 
+		{
+			Ball* ball = new Ball();
+			ball->Initialize();
 
+			mGameObjects.push_back(ball);
+			mTime = 0.0f;
+		}
 
 		for (GameObject* gameObj : mGameObjects)
 		{
