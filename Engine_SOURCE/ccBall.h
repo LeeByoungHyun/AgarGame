@@ -4,6 +4,7 @@
 
 namespace cc
 {
+	using namespace renderer;
 	class Ball : public GameObject
 	{
 	public:
@@ -15,6 +16,7 @@ namespace cc
 		virtual void LateUpdate();
 		virtual void Render();
 
+		Info GetInfo() { return mInfo; }
 
 	private:
 		Mesh* mesh;
@@ -22,7 +24,7 @@ namespace cc
 		renderer::Vertex vertexes[4] = {};
 		ConstantBuffer* constantBuffer;
 
-		float x;
-		float y;
+		Info mInfo;
+
 	};
 }

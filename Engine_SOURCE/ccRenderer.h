@@ -14,9 +14,15 @@ namespace renderer
 		Vector4 color;
 	};
 
+	struct Info
+	{
+		Vector4 pos;
+		Vector4 color;
+		Vector4 scale;
+	};
+
 	extern Vertex Vertexes[];
 	extern cc::Mesh* mesh;
-	extern ID3D11Buffer* triangleConstantBuffer;
 	extern cc::Shader* shader;
 	extern cc::graphics::ConstantBuffer* constantBuffer;
 

@@ -23,22 +23,20 @@ namespace cc
 		virtual void LateUpdate();
 		virtual void Render();
 
-		float GetPlayerBallPosX() { return x; }
-		float GetPlayerBallPosY() { return y; }
-		float GetSize() { return hitbox; }
+		renderer::Info GetInfo() { return mInfo; }
 		void IncreaseSize();
 
 	private:
 		Mesh* mesh;
 		Shader* shader;
-		renderer::Vertex vertexes[4] = {};
-		ConstantBuffer* cPos;
-		ConstantBuffer* cSize;
+		renderer::Vertex vertexes[4];
+		renderer::Info mInfo;
+		ConstantBuffer* cInfo;
 
-		float x;
-		float y;
-		float size;
-		float hitbox;
+		//float x;
+		//float y;
+		//float size;
+		//float hitbox;
 
 		static PlayerBall* instance;
 	};
